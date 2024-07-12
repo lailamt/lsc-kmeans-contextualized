@@ -4,14 +4,10 @@ import pickle
 import numpy as np
 import pandas as pd
 
-termos = ['homem', 'mestre', 'pessoa', 
-          'real', 'porta', 'fortuna', 
-          'esquerda', 'direita', 'espada', 
-          'licença','sala', 
-          'judeu', 'pecado', 'industria', 
-          'retrato', 'negro', 'academia', 
-          'exame', 'sinal', 'voto', 
-          'carambola', 'mortal']
+termos = ['academia', 'direita', 'esquerda', 'exame', 
+          'homem', 'industria', 'mestre', 'mortal', 
+          'negro', 'pecado', 'pessoa', 'porta', 
+          'real', 'retrato', 'sala', 'sinal', 'voto']
 termos = sorted(termos)
 
 def random_samples_clusters(corpus, method, termo_alvo, num_examples_per_cluster = 5):
@@ -70,7 +66,7 @@ option_nexamples = st.slider("Quantos exemplos de cada cluster deseja exibir?", 
 if st.button("Exibir exemplos", type="primary"):
     if option_termo is not "--" and option_method is not "--":
         try:
-            corpus = pd.read_csv(f'embeddings_t1/tycholina_{option_termo}_embb_cluster_t2.csv')
+            corpus = pd.read_csv(f'embeddings_t2/tycholina_{option_termo}_embb_cluster_t2.csv')
             # fig = grafico_similares(option_model, option_termo)
             random_samples_clusters(corpus, option_method, option_termo, num_examples_per_cluster = option_nexamples)
             # st.plotly_chart(fig)
