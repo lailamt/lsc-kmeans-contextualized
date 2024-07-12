@@ -55,7 +55,7 @@ def random_samples_clusters(corpus, method, termo_alvo, num_examples_per_cluster
 st.title('Análise diacrônica da mudança semântica lexical nas representações vetoriais em língua portuguesa.')
 st.write('Amostragem de textos por cluster utilizando o algoritmo de clusterização kmeans.')
 
-st.page_link("lsc-contextuais.py", label="Home", icon="🏠")
+st.page_link("streamlit_app.py", label="Home", icon="🏠")
 st.page_link("pages/clusters-t1.py", label="Clusters em t1", icon="1️⃣")
 st.page_link("pages/clusters-t2.py", label="Clusters em t2", icon="2️⃣", disabled=True)
 
