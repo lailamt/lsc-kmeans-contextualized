@@ -57,7 +57,7 @@ st.write('Amostragem de textos por cluster utilizando o algoritmo de clusteriza�
 
 st.page_link("streamlit_app.py", label="Home", icon="🏠")
 st.page_link("pages/clusters-t1.py", label="Clusters em t1", icon="1️⃣")
-st.page_link("pages/clusters-t2.py", label="Clusters em t2", icon="2️⃣", disabled=True)
+st.page_link("pages/clusters-t2.py", label="Clusters em t2", icon="2️⃣")
 
 # option_termo = st.selectbox(
 #     "Termo",
