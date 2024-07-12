@@ -55,30 +55,26 @@ def random_samples_clusters(corpus, method, termo_alvo, num_examples_per_cluster
 st.title('Análise diacrônica da mudança semântica lexical nas representações vetoriais em língua portuguesa.')
 st.write('Amostragem de textos por cluster utilizando o algoritmo de clusterização kmeans.')
 
-st.page_link("lsc-contextuais.py", label="Home", icon="🏠")
-st.page_link("pages/clusters-t1.py", label="Clusters em t1", icon="1️⃣")
-st.page_link("pages/clusters-t2.py", label="Clusters em t2", icon="2️⃣", disabled=True)
+option_termo = st.selectbox(
+    "Termo",
+    (["--"] + termos))
 
-# option_termo = st.selectbox(
-#     "Termo",
-#     (["--"] + termos))
+option_method = st.selectbox(
+    "Método",
+    (["--", "pca", "tsne"]))
 
-# option_method = st.selectbox(
-#     "Método",
-#     (["--", "pca", "tsne"]))
+st.write("Você selecionou o termo:", option_termo)
 
-# st.write("Você selecionou o termo:", option_termo)
+option_nexamples = st.slider("Quantos exemplos de cada cluster deseja exibir?", 0, 5, 3)
 
-# option_nexamples = st.slider("Quantos exemplos de cada cluster deseja exibir?", 0, 5, 3)
-
-# if st.button("Exibir exemplos", type="primary"):
-#     if option_termo is not "--" and option_method is not "--":
-#         try:
-#             corpus = pd.read_csv(f'embeddings_t1/tycholina_{option_termo}_embb_cluster_t1.csv')
-#             # fig = grafico_similares(option_model, option_termo)
-#             random_samples_clusters(corpus, option_method, option_termo, num_examples_per_cluster = option_nexamples)
-#             # st.plotly_chart(fig)
-#         except:
-#             st.write('erro, tente diminuir o número de exemplos por cluster.')
-#     else:
-#         st.write("Selecione um termos e método.")
+if st.button("Exibir exemplos", type="primary"):
+    if option_termo is not "--" and option_method is not "--":
+        try:
+            corpus = pd.read_csv(f'embeddings_t1/tycholina_{option_termo}_embb_cluster_t2.csv')
+            # fig = grafico_similares(option_model, option_termo)
+            random_samples_clusters(corpus, option_method, option_termo, num_examples_per_cluster = option_nexamples)
+            # st.plotly_chart(fig)
+        except:
+            st.write('erro, tente diminuir o número de exemplos por cluster.')
+    else:
+        st.write("Selecione um termos e método.")
